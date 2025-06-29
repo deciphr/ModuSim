@@ -1,0 +1,15 @@
+[package]
+name = "bottle_filling"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+bevy = "0.16.1"
+bevy_rapier2d = "0.30.0"
+tokio = { version = "1.45.1", features = ["full"] }
+tokio-modbus = { version = "*", default-features = false, features = ["tcp-server"] }
+
+# Enable a small amount of optimization in the dev profile.
+[profile.dev]
+opt-level = 1
