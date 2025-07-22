@@ -2,6 +2,8 @@
 // Copyright (C) 2025 deciphr
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+use super::modbus::ModbusState;
+
 use bevy::ecs::system::SystemParam;
 use bevy::prelude::*;
 use bevy_rapier2d::prelude::*;
@@ -114,7 +116,7 @@ pub fn handle_conveyor_input(
 pub fn sync_conveyor_to_modbus(
     conveyors: Query<&Conveyor>,
     conveyor_state: Res<ConveyorState>,
-    modbus_state: Res<super::ModbusState>,
+    modbus_state: Res<ModbusState>,
 ) {
     if conveyor_state.is_changed() {
         if let Ok(mut coils) = modbus_state.coils.lock() {
@@ -134,7 +136,7 @@ pub fn sync_conveyor_to_modbus(
 pub fn sync_modbus_to_conveyor(
     conveyors: Query<&Conveyor>,
     mut conveyor_state: ResMut<ConveyorState>,
-    modbus_state: Res<super::ModbusState>,
+    modbus_state: Res<ModbusState>,
 ) {
     if let Ok(coils) = modbus_state.coils.lock() {
         for conveyor in conveyors.iter() {

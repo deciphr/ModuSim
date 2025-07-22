@@ -4,5 +4,6 @@
 
 pub mod bottle;
 pub mod conveyor;
-pub mod physics;
+pub mod sensor;
+pub mod valve;
 pub mod modbus;

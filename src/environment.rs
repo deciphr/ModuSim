@@ -5,7 +5,7 @@
 use std::any::TypeId;
 use bevy::prelude::*;
 
-use crate::{
+use crate::components::{
     conveyor::Conveyor,
     bottle::{BOTTLE_HEIGHT, Bottle},
     sensor::Sensor,

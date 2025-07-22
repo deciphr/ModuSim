@@ -5,7 +5,7 @@
 use bevy::prelude::*;
 use bevy_rapier2d::prelude::*;
 
-use crate::conveyor::ConveyorState;
+use super::conveyor::ConveyorState;
 
 // >>> Constants <<<
 pub const BOTTLE_HEIGHT: f32 = 100.0;

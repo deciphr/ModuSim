@@ -5,19 +5,15 @@
 
 use bevy::prelude::*;
 
-mod bottle;
-mod conveyor;
+mod components;
 mod environment;
-mod modbus;
-mod sensor;
-mod valve;
 
-use bottle::BottlePlugin;
-use conveyor::ConveyorPlugin;
+use components::modbus::{ModbusPlugin, ModbusState};
+use components::bottle::BottlePlugin;
+use components::conveyor::ConveyorPlugin;
+use components::sensor::SensorPlugin;
+use components::valve::ValvePlugin;
 use environment::setup_environment;
-use modbus::{ModbusPlugin, ModbusState};
-use sensor::SensorPlugin;
-use valve::ValvePlugin;
 
 fn main() {
     App::new()

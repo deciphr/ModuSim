@@ -7,7 +7,8 @@ use std::any::TypeId;
 use bevy::prelude::*;
 use bevy_rapier2d::prelude::*;
 
-use crate::{
+use super::{
+    modbus::ModbusState,
     bottle::Bottle,
     conveyor::ConveyorState,
     valve::{Ball, ValveState},
@@ -144,7 +145,7 @@ impl Sensor {
 pub fn register_sensors(
     query: Query<&Sensor, Added<Sensor>>,
     mut global_state: ResMut<GlobalSensorState>,
-    modbus_state: Res<super::ModbusState>,
+    modbus_state: Res<ModbusState>,
 ) {
     for sensor in query.iter() {
         let initial_state = SensorState::default();
@@ -237,7 +238,7 @@ pub fn handle_sensor_feedback_prefiltered(
 pub fn sync_sensors_to_modbus(
     sensors: Query<&Sensor>,
     mut global_state: ResMut<GlobalSensorState>,
-    modbus_state: Res<super::ModbusState>,
+    modbus_state: Res<ModbusState>,
 ) {
     let changed_sensors = global_state.get_changed_sensors();
 

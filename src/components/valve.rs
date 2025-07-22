@@ -2,6 +2,7 @@
 // Copyright (C) 2025 deciphr
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+use super::modbus::ModbusState;
 use std::time::Duration;
 
 use bevy::prelude::*;
@@ -93,7 +94,7 @@ pub fn handle_valve_input(
 pub fn sync_valves_to_modbus(
     valves: Query<&Valve>,
     valve_state: Res<ValveState>,
-    modbus_state: Res<super::ModbusState>,
+    modbus_state: Res<ModbusState>,
 ) {
     if valve_state.is_changed() {
         if let Ok(mut coils) = modbus_state.coils.lock() {
@@ -113,7 +114,7 @@ pub fn sync_valves_to_modbus(
 pub fn sync_modbus_to_valves(
     valves: Query<&Valve>,
     mut valve_state: ResMut<ValveState>,
-    modbus_state: Res<super::ModbusState>,
+    modbus_state: Res<ModbusState>,
 ) {
     if let Ok(coils) = modbus_state.coils.lock() {
         for valve in valves.iter() {
