@@ -8,7 +8,7 @@
     </tr>
 </table>
 
-A conceptual Industrial Control System (ICS) simulation written in Rust, using the [Modbus protocol](https://github.com/slowtec/tokio-modbus) to model real-world industrial plants. Inspired by [VirtuaPlant](https://github.com/jseidl/virtuaplant).
+A conceptual Industrial Control System (ICS) simulation written in Rust, using the [Modbus protocol](https://github.com/slowtec/tokio-modbus) to model real-world industrial communication and [Bevy](https://github.com/bevyengine/bevy) to simulate an industrial environment. Inspired by [VirtuaPlant](https://github.com/jseidl/virtuaplant).
 
 ## Installation
 
