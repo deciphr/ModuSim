@@ -30,7 +30,7 @@ When the simulation window loads, here are the keybinds to manually control the 
 | Enter      | Spawn a bottle               |
 | V          | Open/close water valve       |
 
-To manipulate the plant via Modbus, connect to port `5502`. This can be modified in `src/modbus.rs`.
+To manipulate the plant via Modbus, connect to port `5502`. This can be modified in `src/components/modbus.rs`.
 
 ## License
 
